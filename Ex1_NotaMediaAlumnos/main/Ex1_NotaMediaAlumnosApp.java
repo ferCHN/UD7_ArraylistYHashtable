@@ -7,21 +7,13 @@ public class Ex1_NotaMediaAlumnosApp {
 	static Scanner teclado = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		/*
-		1.Crea una aplicación que calcule la nota media de los
-		alumnos pertenecientes al curso de programación. Una vez
-		calculada la nota media se guardara esta información en un
-		diccionario de datos que almacene la nota media de cada
-		alumno. Todos estos datos se han de proporcionar por
-		pantalla
-		*/
-		// Declaro los Hashtable para guardar los alumnos y sus notas
+		// Declarar los Hashtable para guardar los alumnos y sus notas
 		Hashtable<String, double[]> alumnosNotas = new Hashtable<String, double[]>();
 		Hashtable<String, Double> alumnosNotaMedia = new Hashtable<String, Double>();
 
 		boolean salir = false;
 		while (!salir) {
-			System.out.println("Que quieres hacer?\n1 - Insertar alumno\n2 - Ver la nota media de un alumno\n3 - Salir");
+			System.out.println("Que quieres hacer?\n1 - Introducir alumno\n2 - Visualizar la nota media de un alumno\n3 - Salir");
 			int opcion = teclado.nextInt();
 			System.out.println();
 
@@ -61,7 +53,7 @@ public class Ex1_NotaMediaAlumnosApp {
 		}
 		System.out.println();
 
-		// Introduzo las variables pedidas por teclado al las Hashtable
+		// Introducir las variables pedidas por teclado al las Hashtable
 		alumnosNotas.put(nombreAlumno, notasAlumno);
 		alumnosNotaMedia.put(nombreAlumno, calcularNotaMedia(notasAlumno));
 
@@ -69,14 +61,14 @@ public class Ex1_NotaMediaAlumnosApp {
 
 	// METODO PARA CALCULAR LA NOTA MEDIA
 	public static double calcularNotaMedia(double[] notas) {
-		double suma = 0;
+		double sum = 0;
 		double notaMedia;
 
 		for (int i = 0; i < notas.length; i++) {
-			suma += notas[i];
+			sum += notas[i];
 		}
 
-		notaMedia = suma / notas.length;
+		notaMedia = sum / notas.length;
 
 		return notaMedia;
 
@@ -85,13 +77,13 @@ public class Ex1_NotaMediaAlumnosApp {
 	// METODO PARA VER LA NOTA MEDIA DE UN ALUMNO
 	public static void verNotaMedia(Hashtable<String, Double> alumnosNotaMedia) {
 
-		// Guardo las keys en un Enumeration
+		// Guardar las keys en un Enumeration
 		Enumeration<String> nombresKey = alumnosNotaMedia.keys();
 		String alumno;
 
 		System.out.println("De que alumno quieres saber la nota media?");
 
-		// Listo todas las keys
+		// Listar todas las keys
 		while (nombresKey.hasMoreElements()) {
 			System.out.println("[" + nombresKey.nextElement() + "]");
 		}
@@ -99,10 +91,10 @@ public class Ex1_NotaMediaAlumnosApp {
 		alumno = teclado.next();
 		System.out.println();
 		
-		// Vuelvo a guardar las keys en Enumeration para que el puntero este al inicio
+		// Se vuelve a guardar las keys en Enumeration para que el puntero este al inicio
 		nombresKey = alumnosNotaMedia.keys();
 
-		// Si la key que me ha dado el usuario coincide le enseño el elemento asociado a
+		// Si la key que me ha dado el usuario coincide se enseña el elemento asociado a
 		// esa key
 		while (nombresKey.hasMoreElements()) {
 			if (nombresKey.nextElement().equals(alumno)) {
